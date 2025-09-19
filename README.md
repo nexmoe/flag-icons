@@ -46,6 +46,23 @@ or use SASS:
 
 You can find all available variables in [`sass/_variables.scss`](sass/_variables.scss).
 
+### JavaScript modules
+
+From npm installations you can import metadata for each flag directly in modern bundlers:
+
+```js
+import "flag-icons/css/flag-icons.css";
+import { flagCn, flagUs } from "flag-icons";
+
+console.log(flagUs.name);
+// → "United States"
+console.log(flagCn.square);
+// → URL pointing to the 1x1 asset that can be used in img/src or CSS
+```
+
+The ESM entry exposes one export per flag so bundlers can tree-shake unused icons automatically. TypeScript
+definitions are included, providing literal unions for the available country codes and strongly typed metadata.
+
 For using the flags inline with text add the classes `.fi` and `.fi-xx` (where `xx` is the [ISO 3166-1-alpha-2 code](https://www.iso.org/obp/ui/#search/code/) of a country) to an empty `<span>`. If you want to have a squared version flag then add the class `fis` as well. Example:
 
 ```html
